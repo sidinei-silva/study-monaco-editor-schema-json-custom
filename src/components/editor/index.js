@@ -15,6 +15,7 @@ const jsonCode = `
 export default function Editor() {
 
   const [code, setCode] = useState(jsonCode)
+  const [monacoEditor, setEditor]= useState() 
   
 
   const onChange = (newValue, e)  =>{
@@ -22,6 +23,7 @@ export default function Editor() {
   }
 
   const editorDidMount = (editor, monaco)  =>{
+    setEditor(editor)
     // configure the JSON language support with schemas and schema associations
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       enableSchemaRequest: true,

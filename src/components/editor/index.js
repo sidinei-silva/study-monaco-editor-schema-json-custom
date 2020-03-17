@@ -14,6 +14,9 @@ const jsonCode = `
 
 export default function Editor() {
 
+  const startPartLines=[1, 2];
+  const endPartLines=[5,6]
+
   const [code, setCode] = useState(jsonCode)
   const [monacoEditor, setEditor]= useState() 
   

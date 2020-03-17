@@ -27,6 +27,10 @@ export default function Editor() {
 
   const editorDidMount = (editor, monaco)  =>{
     setEditor(editor)
+
+    editor.setPosition({lineNumber:startPartLines[1]+1, column:1});
+    editor.focus(); 
+    
     // configure the JSON language support with schemas and schema associations
     monaco.languages.json.jsonDefaults.setDiagnosticsOptions({
       enableSchemaRequest: true,

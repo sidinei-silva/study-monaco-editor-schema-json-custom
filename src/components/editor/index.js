@@ -19,10 +19,17 @@ export default function Editor() {
 
   const [code, setCode] = useState(jsonCode)
   const [monacoEditor, setEditor]= useState() 
-  
 
-  const onChange = (newValue, e)  =>{
-    // console.log('onChange', newValue, e);
+  const onChange = (newValue, event)  =>{
+    const changes = event.changes;
+    
+    // Not allowing changes to specific lines
+    changes.forEach(change => {
+      if(!event.isUndoing && ((change.range.startLineNumber >= startPartLines[0] && change.range.endLineNumber <= startPartLines[1]) || change.range.startLineNumber >= endPartLines[0] && change.range.endLineNumber <= endPartLines[1]) ){
+        console.log('proibido editar')
+        monacoEditor.trigger('whatever...', 'undo')
+      }
+    })
   }
 
   const editorDidMount = (editor, monaco)  =>{

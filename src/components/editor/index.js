@@ -6,10 +6,10 @@ import * as monaco from 'monaco-editor'
 
 
 const jsonCode = `
-  {
-      "p1": "v3",
-      "p2": false
-  }
+{
+    "p1": "v3",
+    "p2": false
+}
 `
 
 export default function Editor() {

@@ -30,6 +30,12 @@ export default function Editor() {
         monacoEditor.trigger('whatever...', 'undo')
       }
     })
+    
+    // Do not allow deleting line
+    if(monacoEditor.getModel().getLineCount() !== 6 ){
+      console.log('proibido apagar linha')
+      monacoEditor.trigger('whatever...', 'undo')
+    }
   }
 
   const editorDidMount = (editor, monaco)  =>{
